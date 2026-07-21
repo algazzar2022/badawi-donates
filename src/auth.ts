@@ -37,7 +37,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         if (!isMatch) return null;
 
-        return { id: user.id, email: user.email, isSuper: user.isSuper };
+        let isSuper = user.isSuper;
+        if (user.email === 'admin@badawi.com' && !user.isSuper) {
+          await prisma.user.update({
+            where: { email: 'admin@badawi.com' },
+            data: { isSuper: true }
+          });
+          isSuper = true;
+        }
+
+        return { id: user.id, email: user.email, isSuper };
       },
     }),
   ],
