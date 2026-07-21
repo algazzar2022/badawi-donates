@@ -10,7 +10,7 @@ const registerSchema = z.object({
   name: z.string().min(2, "الاسم يجب أن يكون أكثر من حرفين"),
   age: z.coerce.number().min(18, "يجب أن يكون العمر 18 عاماً أو أكثر").max(65, "يجب أن لا يزيد العمر عن 65 عاماً"),
   bloodType: z.enum(["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"], {
-    required_error: "يرجى اختيار فصيلة الدم",
+    message: "يرجى اختيار فصيلة الدم",
   }),
   address: z.string().min(3, "يرجى كتابة العنوان بالتفصيل"),
   phone: z.string().regex(/^01[0125][0-9]{8}$/, "رقم الهاتف غير صحيح"),
