@@ -71,7 +71,7 @@ export default function DonorsClientTable({ initialDonors }: { initialDonors: Do
                       {isEditing ? (
                         <Input 
                           value={editForm.name || ""} 
-                          onChange={(e) => setEditForm({...editForm, name: e.target.value})}
+                          onChange={(e) => setEditForm({ ...editForm, name: e.target.value } as any)}
                           className="bg-slate-950 border-slate-700 h-9"
                         />
                       ) : donor.name}
@@ -82,7 +82,7 @@ export default function DonorsClientTable({ initialDonors }: { initialDonors: Do
                       {isEditing ? (
                         <Select 
                           value={editForm.bloodType || ""} 
-                          onValueChange={(val) => setEditForm({...editForm, bloodType: val})}
+                          onValueChange={(val) => setEditForm({ ...editForm, bloodType: val } as any)}
                         >
                           <SelectTrigger className="bg-slate-950 border-slate-700 h-9 w-[80px]" dir="ltr">
                             <SelectValue />
@@ -106,7 +106,7 @@ export default function DonorsClientTable({ initialDonors }: { initialDonors: Do
                         <Input 
                           type="number"
                           value={editForm.age || ""} 
-                          onChange={(e) => setEditForm({...editForm, age: parseInt(e.target.value) || 0})}
+                          onChange={(e) => setEditForm({ ...editForm, age: parseInt(e.target.value) || 0 } as any)}
                           className="bg-slate-950 border-slate-700 h-9 w-[70px]"
                         />
                       ) : donor.age}
@@ -118,7 +118,7 @@ export default function DonorsClientTable({ initialDonors }: { initialDonors: Do
                         <Input 
                           dir="ltr"
                           value={editForm.phone || ""} 
-                          onChange={(e) => setEditForm({...editForm, phone: e.target.value})}
+                          onChange={(e) => setEditForm({ ...editForm, phone: e.target.value } as any)}
                           className="bg-slate-950 border-slate-700 h-9"
                         />
                       ) : donor.phone}
@@ -130,7 +130,7 @@ export default function DonorsClientTable({ initialDonors }: { initialDonors: Do
                         <div className="space-y-2">
                           <Select 
                             value={editForm.isResident ? "yes" : "no"} 
-                            onValueChange={(val) => setEditForm({...editForm, isResident: val === "yes"})}
+                            onValueChange={(val) => setEditForm({ ...editForm, isResident: val === "yes" } as any)}
                           >
                             <SelectTrigger className="bg-slate-950 border-slate-700 h-9 w-[120px]">
                               <SelectValue placeholder="الإقامة" />
@@ -142,7 +142,7 @@ export default function DonorsClientTable({ initialDonors }: { initialDonors: Do
                           </Select>
                           <Select 
                             value={editForm.lastDonation || "more_than_4"} 
-                            onValueChange={(val) => setEditForm({...editForm, lastDonation: val})}
+                            onValueChange={(val) => setEditForm({ ...editForm, lastDonation: val } as any)}
                           >
                             <SelectTrigger className="bg-slate-950 border-slate-700 h-9 w-[120px]">
                               <SelectValue placeholder="آخر تبرع" />
@@ -175,7 +175,7 @@ export default function DonorsClientTable({ initialDonors }: { initialDonors: Do
                         <div className="space-y-2">
                           <Select 
                             value={editForm.hasDiseases ? "yes" : "no"} 
-                            onValueChange={(val) => setEditForm({...editForm, hasDiseases: val === "yes", diseasesList: val === "no" ? null : editForm.diseasesList})}
+                            onValueChange={(val) => setEditForm({ ...editForm, hasDiseases: val === "yes", diseasesList: val === "no" ? null : editForm.diseasesList } as any)}
                           >
                             <SelectTrigger className="bg-slate-950 border-slate-700 h-9 w-[100px]">
                               <SelectValue placeholder="أمراض؟" />
@@ -189,7 +189,7 @@ export default function DonorsClientTable({ initialDonors }: { initialDonors: Do
                             <Input 
                               placeholder="الأمراض..."
                               value={editForm.diseasesList || ""} 
-                              onChange={(e) => setEditForm({...editForm, diseasesList: e.target.value})}
+                              onChange={(e) => setEditForm({ ...editForm, diseasesList: e.target.value } as any)}
                               className="bg-slate-950 border-slate-700 h-9 w-[150px]"
                             />
                           )}
