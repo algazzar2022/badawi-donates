@@ -58,9 +58,11 @@ export default function RegisterPage() {
                     {state.message}
                   </p>
                   <div className="pt-8">
-                    <Button asChild className="bg-emerald-600 hover:bg-emerald-500 w-full text-white font-bold h-14 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all hover:scale-105">
-                      <Link href="/">العودة للرئيسية</Link>
-                    </Button>
+                    <Link href="/" className="w-full block">
+                      <Button className="bg-emerald-600 hover:bg-emerald-500 w-full text-white font-bold h-14 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all hover:scale-105">
+                        العودة للرئيسية
+                      </Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>

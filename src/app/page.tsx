@@ -63,15 +63,19 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
           >
-            <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-[#D62828] to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-xl px-10 h-16 text-xl font-bold shadow-[0_0_20px_rgba(214,40,40,0.4)] transition-all hover:scale-105" asChild>
-              <Link href="/register" className="flex items-center gap-2">
-                سجل كمتبرع الآن
-                <Activity className="h-6 w-6" />
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-xl px-10 h-16 text-xl font-bold border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white transition-all hover:scale-105" asChild>
-              <Link href="#privacy">كيف نحمي بياناتك؟</Link>
-            </Button>
+            <Link href="/register" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full bg-gradient-to-r from-[#D62828] to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-xl px-10 h-16 text-xl font-bold shadow-[0_0_20px_rgba(214,40,40,0.4)] transition-all hover:scale-105">
+                <div className="flex items-center justify-center gap-2">
+                  سجل كمتبرع الآن
+                  <Activity className="h-6 w-6" />
+                </div>
+              </Button>
+            </Link>
+            <Link href="#privacy" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="w-full rounded-xl px-10 h-16 text-xl font-bold border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white transition-all hover:scale-105">
+                كيف نحمي بياناتك؟
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>
