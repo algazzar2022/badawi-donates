@@ -59,3 +59,11 @@ export async function updateDonorDetails(donorId: string, data: Record<string, u
   revalidatePath("/admin/donors");
   revalidatePath("/admin/request");
 }
+
+export async function deleteDonor(donorId: string) {
+  await prisma.donor.delete({
+    where: { id: donorId }
+  });
+  revalidatePath("/admin/donors");
+  revalidatePath("/admin/request");
+}

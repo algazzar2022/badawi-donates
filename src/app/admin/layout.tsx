@@ -43,6 +43,14 @@ export default async function AdminLayout({
             <Search size={22} className="text-slate-500 group-hover:text-[#D62828] transition-colors" />
             <span className="font-semibold text-lg">طلب فصيلة دم</span>
           </Link>
+          <Link href="/admin/admins" className="flex items-center gap-4 px-5 py-4 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-white transition-all hover:scale-[1.02] active:scale-95 group">
+            <Users size={22} className="text-slate-500 group-hover:text-amber-400 transition-colors" />
+            <span className="font-semibold text-lg">المشرفين</span>
+          </Link>
+          <Link href="/admin/seo" className="flex items-center gap-4 px-5 py-4 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-white transition-all hover:scale-[1.02] active:scale-95 group">
+            <Activity size={22} className="text-slate-500 group-hover:text-purple-400 transition-colors" />
+            <span className="font-semibold text-lg">إعدادات الموقع (SEO)</span>
+          </Link>
         </nav>
         <div className="p-6 border-t border-slate-800/50 relative z-10">
           <form action={async () => {

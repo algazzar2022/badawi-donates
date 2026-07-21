@@ -31,6 +31,15 @@ model User {
   id        String   @id @default(cuid())
   email     String   @unique
   password  String
+  isSuper   Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model SiteSettings {
+  id          String   @id @default("default")
+  title       String   @default("بدواي تتبرع | شبكة بدواي للتبرع بالدم")
+  description String   @default("شبكة قرية بدواي للتبرع بالدم، معاً نحدث فرقاً.")
+  keywords    String   @default("تبرع بالدم, بدواي, بنك الدم, انقاذ حياة")
+  ogImage     String?
 }

@@ -8,10 +8,35 @@ const cairo = Cairo({
   variable: "--font-cairo",
 });
 
-export const metadata: Metadata = {
-  title: "بدواي تتبرع | شبكة بدواي للتبرع بالدم",
-  description: "شبكة بدواي للتبرع بالدم. تبرعك بالدم قد ينقذ حياة إنسان. سجل كمتبرع بقرية بدواي في سرية تامة.",
-};
+import { prisma } from "@/lib/prisma";
+
+export async function generateMetadata(): Promise<Metadata> {
+  try {
+    const settings = await prisma.siteSettings.findUnique({
+      where: { id: "default" }
+    });
+
+    if (settings) {
+      return {
+        title: settings.title,
+        description: settings.description,
+        keywords: settings.keywords,
+        openGraph: {
+          title: settings.title,
+          description: settings.description,
+          images: settings.ogImage ? [{ url: settings.ogImage }] : [],
+        }
+      };
+    }
+  } catch (e) {
+    // Ignore errors during build time and use fallback
+  }
+
+  return {
+    title: "بدواي تتبرع | شبكة بدواي للتبرع بالدم",
+    description: "شبكة بدواي للتبرع بالدم. تبرعك بالدم قد ينقذ حياة إنسان. سجل كمتبرع بقرية بدواي في سرية تامة.",
+  };
+}
 
 export default function RootLayout({
   children,
