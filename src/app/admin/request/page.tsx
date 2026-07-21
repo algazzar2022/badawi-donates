@@ -139,9 +139,11 @@ export default function BloodRequestPage() {
                         <Phone size={20} className="text-slate-500" />
                         {donor.phone}
                       </div>
-                      <Button size="lg" className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white shadow-[0_0_15px_rgba(5,150,105,0.4)]" asChild>
-                        <a href={`tel:${donor.phone}`}>اتصال بالمتبرع</a>
-                      </Button>
+                      <a href={`tel:${donor.phone}`}>
+                        <Button size="lg" className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white shadow-[0_0_15px_rgba(5,150,105,0.4)]">
+                          اتصال بالمتبرع
+                        </Button>
+                      </a>
                     </div>
 
                     <div className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-6 border-t border-slate-800">
