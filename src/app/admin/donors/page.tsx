@@ -1,8 +1,4 @@
 import { prisma } from "@/lib/prisma";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { format } from "date-fns";
-import { ar } from "date-fns/locale";
 import { Users } from "lucide-react";
 import DonorsClientTable from "./DonorsClientTable";
 

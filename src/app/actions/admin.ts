@@ -30,14 +30,22 @@ export async function updateDonorStatus(donorId: string, status: string) {
   revalidatePath("/admin/request");
 }
 
-export async function updateDonorDetails(donorId: string, data: any) {
-  const { name, age, bloodType, phone, address, isResident, lastDonation, hasDiseases, diseasesList } = data;
+export async function updateDonorDetails(donorId: string, data: Record<string, unknown>) {
+  const name = data.name as string;
+  const age = data.age as string | number;
+  const bloodType = data.bloodType as string;
+  const phone = data.phone as string;
+  const address = data.address as string;
+  const isResident = data.isResident;
+  const lastDonation = data.lastDonation as string;
+  const hasDiseases = data.hasDiseases;
+  const diseasesList = data.diseasesList as string | null;
   
   await prisma.donor.update({
     where: { id: donorId },
     data: {
       name,
-      age: parseInt(age),
+      age: typeof age === "string" ? parseInt(age) : age as number,
       bloodType,
       phone,
       address,
