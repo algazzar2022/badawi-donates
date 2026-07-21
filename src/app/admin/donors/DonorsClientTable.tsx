@@ -174,7 +174,9 @@ export default function DonorsClientTable({ initialDonors }: { initialDonors: Do
                   onValueChange={(val) => setEditForm({ ...editForm, isResident: val === "yes" } as unknown as Partial<Donor>)}
                 >
                   <SelectTrigger className="bg-slate-950 border-slate-700">
-                    <SelectValue />
+                    <SelectValue>
+                      {editForm.isResident ? "مقيم ببدواي" : "خارج بدواي"}
+                    </SelectValue>
                   </SelectTrigger>
                   <SelectContent className="bg-slate-900 border-slate-700 text-white">
                     <SelectItem value="yes">مقيم ببدواي</SelectItem>
@@ -189,7 +191,9 @@ export default function DonorsClientTable({ initialDonors }: { initialDonors: Do
                   onValueChange={(val) => setEditForm({ ...editForm, lastDonation: val } as unknown as Partial<Donor>)}
                 >
                   <SelectTrigger className="bg-slate-950 border-slate-700">
-                    <SelectValue />
+                    <SelectValue>
+                      {editForm.lastDonation === "less_than_4" ? "أقل من 4 شهور" : "أكثر من 4 شهور"}
+                    </SelectValue>
                   </SelectTrigger>
                   <SelectContent className="bg-slate-900 border-slate-700 text-white">
                     <SelectItem value="less_than_4">أقل من 4 شهور</SelectItem>
@@ -205,7 +209,9 @@ export default function DonorsClientTable({ initialDonors }: { initialDonors: Do
                 onValueChange={(val) => setEditForm({ ...editForm, hasDiseases: val === "yes", diseasesList: val === "no" ? null : editForm.diseasesList } as unknown as Partial<Donor>)}
               >
                 <SelectTrigger className="bg-slate-950 border-slate-700">
-                  <SelectValue />
+                  <SelectValue>
+                    {editForm.hasDiseases ? "نعم يعاني من أمراض" : "سليم"}
+                  </SelectValue>
                 </SelectTrigger>
                 <SelectContent className="bg-slate-900 border-slate-700 text-white">
                   <SelectItem value="no">سليم</SelectItem>
