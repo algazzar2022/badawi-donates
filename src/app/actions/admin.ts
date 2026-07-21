@@ -2,6 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import type { Prisma } from "@prisma/client";
 
 export async function searchDonors(formData: FormData) {
   const bloodType = formData.get("bloodType") as string;
@@ -9,7 +10,7 @@ export async function searchDonors(formData: FormData) {
 
   if (!bloodType) return [];
 
-  const whereClause: any = { bloodType };
+  const whereClause: Prisma.DonorWhereInput = { bloodType };
   
   if (isResident === "yes") whereClause.isResident = true;
   else if (isResident === "no") whereClause.isResident = false;

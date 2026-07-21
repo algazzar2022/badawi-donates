@@ -5,7 +5,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Heart, ShieldCheck, PhoneCall, UserCheck, Activity, Droplets, LockKeyhole } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 export default function Home() {
   const containerVariants = {

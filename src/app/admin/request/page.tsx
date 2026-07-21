@@ -7,9 +7,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Phone, Search, CheckCircle, XCircle, Clock, Droplets } from "lucide-react";
+import type { Donor } from "@prisma/client";
 
 export default function BloodRequestPage() {
-  const [donors, setDonors] = useState<any[]>([]);
+  const [donors, setDonors] = useState<Donor[]>([]);
   const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false);
 

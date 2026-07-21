@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { ShieldCheck, Activity, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -178,7 +178,7 @@ export default function RegisterPage() {
                     <div className="pt-2">
                       <div className="flex items-start gap-3 p-4 rounded-xl bg-blue-900/20 border border-blue-800/30 text-blue-300 text-sm mb-6">
                         <ShieldCheck className="shrink-0 mt-0.5 text-blue-400" size={18} />
-                        <p>بضغطك على "تسجيل بياناتي"، أنت تؤكد صحة البيانات وأنك توافق على تواصل إدارة الشبكة معك عند وجود حالة طارئة.</p>
+                        <p>بضغطك على &quot;تسجيل بياناتي&quot;، أنت تؤكد صحة البيانات وأنك توافق على تواصل إدارة الشبكة معك عند وجود حالة طارئة.</p>
                       </div>
 
                       {state?.message && !state.success && (

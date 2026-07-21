@@ -17,7 +17,7 @@ const registerSchema = z.object({
   isResident: z.enum(["yes", "no"]),
 });
 
-export async function registerDonor(prevState: any, formData: FormData) {
+export async function registerDonor(prevState: unknown, formData: FormData) {
   try {
     const rawData = {
       name: formData.get("name"),
