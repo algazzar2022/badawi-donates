@@ -127,6 +127,8 @@ export default function BloodRequestPage() {
                         <div className="flex items-center gap-3">
                           <span className="text-sm font-medium px-3 py-1 bg-slate-800 text-slate-300 rounded-lg">العمر: {donor.age}</span>
                           <span className="text-sm font-medium px-3 py-1 bg-slate-800 text-slate-300 rounded-lg">{donor.isResident ? "مقيم ببدواي" : "خارج بدواي"}</span>
+                          <span className="text-sm font-medium px-3 py-1 bg-slate-800 text-slate-300 rounded-lg">{donor.hasDiseases ? "يعاني من أمراض" : "سليم"}</span>
+                          <span className="text-sm font-medium px-3 py-1 bg-slate-800 text-slate-300 rounded-lg">{donor.diseasesList || "لا يوجد أمراض"}</span>
                         </div>
                       </div>
                       <Badge variant="outline" className="text-[#D62828] border-[#D62828] font-black text-2xl px-4 py-2 shadow-[0_0_15px_rgba(214,40,40,0.3)] bg-slate-950" dir="ltr">

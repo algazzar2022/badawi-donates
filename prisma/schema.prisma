@@ -18,10 +18,13 @@ model Donor {
   bloodType  String
   address    String
   phone      String
-  isResident Boolean  @default(true)
-  status     String   @default("pending") // pending, approved, rejected, no_answer (used for blood request flow)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  isResident   Boolean  @default(true)
+  lastDonation String   @default("more_than_4") // less_than_4, more_than_4
+  hasDiseases  Boolean  @default(false)
+  diseasesList String?
+  status       String   @default("pending") // pending, approved, rejected, no_answer (used for blood request flow)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
 
 model User {

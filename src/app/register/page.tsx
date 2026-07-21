@@ -160,22 +160,73 @@ export default function RegisterPage() {
                       {state?.errors?.address && <p className="text-sm text-red-400">{state.errors.address[0]}</p>}
                     </div>
 
-                    <div className="space-y-3 pt-2">
-                      <Label className="text-slate-300">هل أنت مقيم بقرية بدواي حالياً؟ <span className="text-[#D62828]">*</span></Label>
-                      <div className="flex gap-4">
-                        <label className="relative flex items-center justify-center gap-2 border border-slate-700 bg-slate-950/30 p-4 rounded-xl flex-1 cursor-pointer hover:bg-slate-800 transition-colors has-[:checked]:border-[#D62828] has-[:checked]:bg-[#D62828]/10 group">
-                          <input type="radio" name="isResident" value="yes" defaultChecked className="peer sr-only" />
-                          <div className="w-4 h-4 rounded-full border-2 border-slate-500 peer-checked:border-[#D62828] peer-checked:bg-[#D62828] transition-all"></div>
-                          <span className="text-slate-300 peer-checked:text-white font-medium">نعم، مقيم</span>
-                        </label>
-                        <label className="relative flex items-center justify-center gap-2 border border-slate-700 bg-slate-950/30 p-4 rounded-xl flex-1 cursor-pointer hover:bg-slate-800 transition-colors has-[:checked]:border-[#D62828] has-[:checked]:bg-[#D62828]/10 group">
-                          <input type="radio" name="isResident" value="no" className="peer sr-only" />
-                          <div className="w-4 h-4 rounded-full border-2 border-slate-500 peer-checked:border-[#D62828] peer-checked:bg-[#D62828] transition-all"></div>
-                          <span className="text-slate-300 peer-checked:text-white font-medium">لا، خارج بدواي</span>
-                        </label>
+                      <div className="space-y-3 pt-2">
+                        <Label className="text-slate-300">هل أنت مقيم بقرية بدواي حالياً؟ <span className="text-[#D62828]">*</span></Label>
+                        <div className="flex gap-4">
+                          <label className="relative flex items-center justify-center gap-2 border border-slate-700 bg-slate-950/30 p-4 rounded-xl flex-1 cursor-pointer hover:bg-slate-800 transition-colors has-[:checked]:border-[#D62828] has-[:checked]:bg-[#D62828]/10 group">
+                            <input type="radio" name="isResident" value="yes" defaultChecked className="peer sr-only" />
+                            <div className="w-4 h-4 rounded-full border-2 border-slate-500 peer-checked:border-[#D62828] peer-checked:bg-[#D62828] transition-all"></div>
+                            <span className="text-slate-300 peer-checked:text-white font-medium">نعم، مقيم</span>
+                          </label>
+                          <label className="relative flex items-center justify-center gap-2 border border-slate-700 bg-slate-950/30 p-4 rounded-xl flex-1 cursor-pointer hover:bg-slate-800 transition-colors has-[:checked]:border-[#D62828] has-[:checked]:bg-[#D62828]/10 group">
+                            <input type="radio" name="isResident" value="no" className="peer sr-only" />
+                            <div className="w-4 h-4 rounded-full border-2 border-slate-500 peer-checked:border-[#D62828] peer-checked:bg-[#D62828] transition-all"></div>
+                            <span className="text-slate-300 peer-checked:text-white font-medium">لا، خارج بدواي</span>
+                          </label>
+                        </div>
+                        {state?.errors?.isResident && <p className="text-sm text-red-400">{state.errors.isResident[0]}</p>}
                       </div>
-                      {state?.errors?.isResident && <p className="text-sm text-red-400">{state.errors.isResident[0]}</p>}
-                    </div>
+
+                      <div className="space-y-3 pt-2">
+                        <Label className="text-slate-300">متى كانت آخر مرة تبرعت فيها بالدم؟ <span className="text-[#D62828]">*</span></Label>
+                        <div className="flex gap-4">
+                          <label className="relative flex items-center justify-center gap-2 border border-slate-700 bg-slate-950/30 p-4 rounded-xl flex-1 cursor-pointer hover:bg-slate-800 transition-colors has-[:checked]:border-[#D62828] has-[:checked]:bg-[#D62828]/10 group">
+                            <input type="radio" name="lastDonation" value="more_than_4" defaultChecked className="peer sr-only" />
+                            <div className="w-4 h-4 rounded-full border-2 border-slate-500 peer-checked:border-[#D62828] peer-checked:bg-[#D62828] transition-all"></div>
+                            <span className="text-slate-300 peer-checked:text-white font-medium text-center">أكثر من 4 شهور<br/><span className="text-xs text-slate-500">(أو لم أتبرع من قبل)</span></span>
+                          </label>
+                          <label className="relative flex items-center justify-center gap-2 border border-slate-700 bg-slate-950/30 p-4 rounded-xl flex-1 cursor-pointer hover:bg-slate-800 transition-colors has-[:checked]:border-[#D62828] has-[:checked]:bg-[#D62828]/10 group">
+                            <input type="radio" name="lastDonation" value="less_than_4" className="peer sr-only" />
+                            <div className="w-4 h-4 rounded-full border-2 border-slate-500 peer-checked:border-[#D62828] peer-checked:bg-[#D62828] transition-all"></div>
+                            <span className="text-slate-300 peer-checked:text-white font-medium text-center">أقل من 4 شهور</span>
+                          </label>
+                        </div>
+                        {state?.errors?.lastDonation && <p className="text-sm text-red-400">{state.errors.lastDonation[0]}</p>}
+                      </div>
+
+                      <div className="space-y-3 pt-2">
+                        <Label className="text-slate-300">هل تعاني من أي أمراض مزمنة أو معدية؟ <span className="text-[#D62828]">*</span></Label>
+                        <div className="flex gap-4">
+                          <label className="relative flex items-center justify-center gap-2 border border-slate-700 bg-slate-950/30 p-4 rounded-xl flex-1 cursor-pointer hover:bg-slate-800 transition-colors has-[:checked]:border-[#D62828] has-[:checked]:bg-[#D62828]/10 group">
+                            <input type="radio" name="hasDiseases" value="no" defaultChecked className="peer sr-only" onChange={() => {
+                              const input = document.getElementById('diseasesListContainer');
+                              if (input) input.style.display = 'none';
+                            }}/>
+                            <div className="w-4 h-4 rounded-full border-2 border-slate-500 peer-checked:border-[#D62828] peer-checked:bg-[#D62828] transition-all"></div>
+                            <span className="text-slate-300 peer-checked:text-white font-medium">لا يوجد (سليم)</span>
+                          </label>
+                          <label className="relative flex items-center justify-center gap-2 border border-slate-700 bg-slate-950/30 p-4 rounded-xl flex-1 cursor-pointer hover:bg-slate-800 transition-colors has-[:checked]:border-[#D62828] has-[:checked]:bg-[#D62828]/10 group">
+                            <input type="radio" name="hasDiseases" value="yes" className="peer sr-only" onChange={() => {
+                              const input = document.getElementById('diseasesListContainer');
+                              if (input) input.style.display = 'block';
+                            }}/>
+                            <div className="w-4 h-4 rounded-full border-2 border-slate-500 peer-checked:border-[#D62828] peer-checked:bg-[#D62828] transition-all"></div>
+                            <span className="text-slate-300 peer-checked:text-white font-medium">نعم</span>
+                          </label>
+                        </div>
+                        {state?.errors?.hasDiseases && <p className="text-sm text-red-400">{state.errors.hasDiseases[0]}</p>}
+                      </div>
+                      
+                      <div id="diseasesListContainer" style={{ display: 'none' }} className="space-y-2 pt-2 animate-in fade-in slide-in-from-top-4 duration-300">
+                        <Label htmlFor="diseasesList" className="text-slate-300">يرجى كتابة أسماء الأمراض <span className="text-[#D62828]">*</span></Label>
+                        <Input 
+                          id="diseasesList" 
+                          name="diseasesList" 
+                          placeholder="مثال: الضغط، السكري، الخ..." 
+                          className="h-12 bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-600 focus-visible:ring-[#D62828]" 
+                        />
+                        {state?.errors?.diseasesList && <p className="text-sm text-red-400">{state.errors.diseasesList[0]}</p>}
+                      </div>
 
                     <div className="pt-2">
                       <div className="flex items-start gap-3 p-4 rounded-xl bg-blue-900/20 border border-blue-800/30 text-blue-300 text-sm mb-6">

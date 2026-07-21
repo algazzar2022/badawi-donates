@@ -15,6 +15,9 @@ const registerSchema = z.object({
   address: z.string().min(3, "يرجى كتابة العنوان بالتفصيل"),
   phone: z.string().regex(/^01[0125][0-9]{8}$/, "رقم الهاتف غير صحيح"),
   isResident: z.enum(["yes", "no"]),
+  lastDonation: z.enum(["less_than_4", "more_than_4"]),
+  hasDiseases: z.enum(["yes", "no"]),
+  diseasesList: z.string().optional(),
 });
 
 export async function registerDonor(prevState: unknown, formData: FormData) {
@@ -26,6 +29,9 @@ export async function registerDonor(prevState: unknown, formData: FormData) {
       address: formData.get("address"),
       phone: formData.get("phone"),
       isResident: formData.get("isResident"),
+      lastDonation: formData.get("lastDonation"),
+      hasDiseases: formData.get("hasDiseases"),
+      diseasesList: formData.get("diseasesList"),
     };
 
     const validatedData = registerSchema.safeParse(rawData);
@@ -38,7 +44,7 @@ export async function registerDonor(prevState: unknown, formData: FormData) {
       };
     }
 
-    const { name, age, bloodType, address, phone, isResident } = validatedData.data;
+    const { name, age, bloodType, address, phone, isResident, lastDonation, hasDiseases, diseasesList } = validatedData.data;
 
     await prisma.donor.create({
       data: {
@@ -48,6 +54,9 @@ export async function registerDonor(prevState: unknown, formData: FormData) {
         address,
         phone,
         isResident: isResident === "yes",
+        lastDonation,
+        hasDiseases: hasDiseases === "yes",
+        diseasesList: hasDiseases === "yes" ? diseasesList : null,
       },
     });
 

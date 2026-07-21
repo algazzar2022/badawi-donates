@@ -29,3 +29,25 @@ export async function updateDonorStatus(donorId: string, status: string) {
   
   revalidatePath("/admin/request");
 }
+
+export async function updateDonorDetails(donorId: string, data: any) {
+  const { name, age, bloodType, phone, address, isResident, lastDonation, hasDiseases, diseasesList } = data;
+  
+  await prisma.donor.update({
+    where: { id: donorId },
+    data: {
+      name,
+      age: parseInt(age),
+      bloodType,
+      phone,
+      address,
+      isResident: isResident === "yes" || isResident === true,
+      lastDonation,
+      hasDiseases: hasDiseases === "yes" || hasDiseases === true,
+      diseasesList: (hasDiseases === "yes" || hasDiseases === true) ? diseasesList : null,
+    }
+  });
+  
+  revalidatePath("/admin/donors");
+  revalidatePath("/admin/request");
+}
